@@ -11,7 +11,7 @@ Component({
   /**
    * 组件的初始数据
    */
-  data: {   
+  data: {  
     selectShow: false,//初始option不显示
     nowText: "请选择",//初始内容
     animationData: {}//右边箭头的动画
@@ -50,11 +50,15 @@ Component({
       var nowText = nowData[nowIdx].text;//当前点击的内容
       var nowID = nowData[nowIdx].id;//获取到的id。
       var nowDate = {
-        // id: nowID, //这个改为获取到的id
+        id: nowID, //这个改为获取到的id
         schoolName: nowText //获取学校名      
       }
       // 将输入的姓名保存本地
-      wx.setStorageSync('schoolName', nowText)
+      wx.setStorageSync('schoolName', nowText);
+      wx.setStorageSync('schoolId', nowID);
+
+      
+
 
       this.triggerEvent('myget', nowDate);
       //再次执行动画，注意这里一定，一定，一定是this.animation来使用动画

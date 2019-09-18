@@ -1,8 +1,8 @@
 var app = getApp();
-// const { $Toast } = require('../student/student');
 Page({
   data: {
     schoolName:'',
+    schoolId:'',
 
     selectArray: [{
       "id": "0",
@@ -28,11 +28,24 @@ Page({
     }
     ],    
   },
-
-
   jumpPage: function () {
+    //  从上一页获取姓名
+    var schoolName = wx.getStorageSync('schoolName')
+    this.setData({
+      schoolName: schoolName
+    })
+    //  判断输入框不能为空
+    if (schoolName =='') {
+      
+      wx.showToast({
+        title: '学校名不能为空',
+        icon: 'none',
+        duration: 2000
+      })
+    } else {
     wx.navigateTo({
       url: '../student/student?schoolName={{schoolName}}',
     })
+    }
   }, 
 })

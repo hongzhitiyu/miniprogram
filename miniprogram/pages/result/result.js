@@ -3,15 +3,12 @@ Page({
   data: {
     username: '',
     schoolName:'',
+    dbName:'',
 
     listData: [
-      { "code": "01", "text": "text1", "type": "type1" },
-      { "code": "02", "text": "text2", "type": "type2" },
-      { "code": "03", "text": "text3", "type": "type3" },
-      { "code": "04", "text": "text4", "type": "type4" },
-      { "code": "05", "text": "text5", "type": "type5" },
-      { "code": "06", "text": "text6", "type": "type6" },
-      { "code": "07", "text": "text7", "type": "type7" }
+      { "code": "2019.9.7", "text": "上午1", "type": "刘" },
+      { "code": "2019.9.7", "text": "上午1", "type": "黄" },
+      { "code": "2019.9.7", "text": "下午", "type": "彭" }
     ]
   },
 
@@ -23,5 +20,28 @@ Page({
      username: username,
      schoolName: schoolName
    })
+  // 判断选中的学校名称并开始匹配数据库表名
+   if (schoolName == '螺岭二部') {
+    var dbName = 'erbu';
+  }
+   else if (schoolName == '螺岭一部') {
+    var dbName = 'yibu';
+  }
+   else if (schoolName == '洪湖') {
+    var dbName = 'honghu';
+  }
+   else if (schoolName == '安芳') {
+    var dbName = 'anfang';
+  }
+   else if (schoolName == '滨河') {
+    var dbName = 'binhe';
+   } else if (schoolName == '淘金山') {
+    var dbName = 'taojinshan';
+   } else if (schoolName == '罗小') {
+    var dbName = 'luoxiao';
+  }
+  // 将输入的姓名保存本地
+  wx.setStorageSync('dbName', dbName);
+  console.log(dbName)
  }
 })
