@@ -1,0 +1,42 @@
+<scroll-view scroll-y>
+<!-- 制作表格 -->
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th" selectable="true">所在校区：{{schoolName}}</view>
+    <view class="th" selectable="true">姓名：{{username}}</view>
+  </view>
+
+
+  <view class="tr bg-w">
+      <view class="th">总课时: 14{{totalClass}}</view>
+      <view class="th">已上课时: 4{{class}}</view>
+      <view class="th ">剩余课时: 10{{remainingClass}}</view>
+  </view>
+
+  <view class="tr bg-w">
+    <view class="th">课时</view>
+    <view class="th">日期</view>
+    <view class="th">上/下午</view>
+    <view class="th ">教练</view>
+  </view>
+</view>
+
+  <!-- <block wx:for="{{}}" wx:key="{{index}}">
+  </block> -->
+  <block wx:for="{{listData}}" wx:key="{{code}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}} wx:for-index=1">
+      <view class="td">{{index}}</view>
+      <view class="td">{{item.code}}</view>
+      <view class="td">{{item.text}}</view>
+      <view class="td">{{item.type}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td">{{index}}</view>
+      <view class="td">{{item.code}}</view>
+      <view class="td">{{item.text}}</view>
+      <view class="td">{{item.type}}</view>
+    </view>
+  </block>
+
+
+</scroll-view>

@@ -1,0 +1,7 @@
+/* pages/student/student.wxss */
+.searchBtn{  
+  margin:auto;
+  display:block;
+  margin-top: 150rpx;
+  width:350rpx 
+}

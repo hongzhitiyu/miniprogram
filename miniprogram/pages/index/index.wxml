@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<form>
+<view class="container">
+  <view class="imgSize"><image class="img" src="/images/logo.jpg"/></view>
+  <view class="center-text" style="width:120px;height:50px" position="relative" left="500px">请选择培训场地</view>
+  <view>
+  <selector propArray="{{selectArray}}" bind:myget="getSchoolName"></selector>  
+  </view>
+
+  <form bindsubmit='nextBtn'>   
+  <view>      
+      <button class='nextBtn' style='background-color:#0080FF;' type="primary" bindtap="jumpPage" form-type="submit">下一步</button>
+  </view>   
+    <view class='day-weather' bindtap='onTapDayWeather'></view>
+  </form>
+</view>
+</form>
+
+<van-notice-bar
+  left-icon="https://img.yzcdn.cn/1.png"
+  text="通知：--国庆放假7天，特此公告！祝大家国庆节快乐！"
+/>
