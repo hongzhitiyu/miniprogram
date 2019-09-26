@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "index": "/pages/index/index",
+    "selector": "/pages/selector/selector"
+      
+  }
+}

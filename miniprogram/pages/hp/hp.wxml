@@ -1,0 +1,32 @@
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th" selectable="true">所在校区：{{schoolName}}</view>
+    <view class="th" selectable="true">姓名：{{userName}}</view>
+  </view>
+
+
+  <view class="tr bg-w" wx:for="{{classnum}}" wx:key="">
+    <view class="th">总课时: {{item.totalClass}}</view>
+    <view class="th">已上课时: {{item.attendClass}}</view>
+    <view class="th ">剩余课时: {{item.remainingClass}}</view>
+  </view>
+
+
+  <view class="tr bg-w">
+    <view class="th1">课时</view>
+    <view class="th">日期</view>
+    <view class="th">星期</view>
+    <view class="th">上课时间</view>
+    <view class="th ">教练</view>
+  </view>
+</view>
+
+<scroll-view scroll-y>
+  <view class="tr bg-g" wx:for="{{tableData}}" wx:key="">
+    <view class="td1">{{index+1}}</view>
+    <view class="td">{{item.date}}</view>
+    <view class="td">{{item.week}}</view>
+    <view class="td">{{item.time}}</view>
+    <view class="td">{{item.teacher}}</view>
+  </view>
+</scroll-view>
