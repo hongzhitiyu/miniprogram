@@ -1,6 +1,6 @@
 //云数据库初始化
 const db = wx.cloud.database({});
-const cont = db.collection('river_data');
+// const cont = db.collection('river_data');
 
 Page({
   data: {
@@ -10,8 +10,8 @@ Page({
     totalClass: '',
     attendClass: '',
     remainingClass: '',
-    userName: '洪心远',
-    dbName: 'erBu',
+    userName: '陈华政',
+    dbName: 'erbu',
     arr: []
   },
   /**
@@ -24,6 +24,7 @@ Page({
     })
     db.collection(this.data.dbName).where({
       userName: this.data.userName,
+      // userName: '陈华政',
     }).get({
       success: res => {
         wx.showToast({
@@ -33,7 +34,7 @@ Page({
           classnum: res.data
         })
         let result = res.data[0];
-        // console.log(result)
+        console.log(result)
 
         for (var key in result) {
           if (key.indexOf("2019") > -1 && result[key] != "") {

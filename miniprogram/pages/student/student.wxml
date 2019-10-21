@@ -5,7 +5,7 @@
  
     <form bindsubmit='formSubmit'name='myForm'>  
       <view>              
-        <input class="input" type="text" name="username" focus="True" maxlength="4" placeholder="请输入姓名" />
+        <input class="input" type="text" name="user" focus="True" maxlength="4" placeholder="请输入姓名" />
         <button class='searchBtn'
                 style='background-color:#0080FF;'
                 hover-class="hover-class-style" 

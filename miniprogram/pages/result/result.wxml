@@ -1,14 +1,14 @@
 <view class="table">
   <view class="tr bg-w">
-    <view class="th" selectable="true">所在校区：{{schoolName}}</view>
-    <view class="th" selectable="true">姓名：{{user}}</view>
+    <view class="th-1" selectable="true">所在校区：{{schoolName}}</view>
+    <view class="th-1" selectable="true">姓名：{{user}}</view>
   </view>
 
 
   <view class="tr bg-w" wx:for="{{classnum}}" wx:key="">
-    <view class="th">总课时: {{item.totalClass}}</view>
-    <view class="th">已上课时: {{item.attendClass}}</view>
-    <view class="th ">剩余课时: {{item.remainingClass}}</view>
+    <view class="th-2">总课时: {{item.totalClass}}</view>
+    <view class="th-2">已上课时: {{item.attendClass}}</view>
+    <view class="th-2 ">剩余课时: {{item.remainingClass}}</view>
   </view>
 
 

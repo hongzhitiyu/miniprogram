@@ -22,6 +22,7 @@ App({
   globalData:{
     schoolName:null,
     userName:null,
+    user: null,
 
   }
 })

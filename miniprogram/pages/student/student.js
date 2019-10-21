@@ -1,5 +1,4 @@
 var app = getApp();
-// 洪心远
 Page({
       data: {
         userName: '',
@@ -10,20 +9,14 @@ Page({
       },
 
       onLoad: function(options) {
-        // // 初始化云
-        // wx.cloud.init({
-        //   env: 'dev-hongzhi',
-        //   traceUser: true
-        // });
-        // // 初始化数据库
-        // const db = wx.cloud.database();
-
         //  从上一页获取姓名
+        var that = this
         var schoolName = wx.getStorageSync('schoolName')
-        this.setData({
-          schoolName: this.data.schoolName
-        })
         console.log(schoolName)
+        this.setData({
+          schoolName:schoolName
+        });
+       
         // 判断选中的学校名称并开始匹配数据库表名
         if (schoolName == '螺岭二部') {
           var dbName = 'erbu';
@@ -40,20 +33,32 @@ Page({
         } else if (schoolName == '罗小') {
           var dbName = 'luoxiao';
         }
+        // console.log(dbName)
+        // 将输入的DB保存本地      
+        wx.setStorageSync('dbName', dbName)
         console.log(dbName)
-        // 将输入的DB保存本地
-        // wx.setStorageSync('dbName', e.detail.value.dbName)
+        var that = this
+        that.setData({
+          dbName: dbName
+        })
       },
       // 当用户提交表单时回调函数
 
       formSubmit: function(e) {
         // var that = this
-        // var username = e.detail.value.value
+        // var username = e.detail.value.username
         //  console.log(event.detail) 
-        var user = e.detail.value.username;
+        var user = e.detail.value.user;
+
         // 将输入的姓名保存本地
-        wx.setStorageSync('user', e.detail.value.username)
-        // console.log (user)
+        // wx.setStorageSync('username', e.detail.value.username)  
+        // console.log(userName)
+        var that = this
+        wx.setStorageSync('user', e.detail.value.user)        
+        this.setData({
+          user: user
+        })
+        console.log(user)
         //  判断输入框不能为空
         if (user == "") {
           wx.showToast({
@@ -62,24 +67,25 @@ Page({
             duration: 2000
           })
         } else {
-          var _this = this;
           // //1、引用数据库   
           const db = wx.cloud.database({
             //这个是环境ID不是环境名称     
             env: 'dev-hongzhi'
           })
           // 2、开始查询数据了  news对应的是集合的名称  
-          db.collection('erBu').where({
-            // userName: e.detail.value.user,
-            userName:user,
+          db.collection(this.data.dbName).where({
+            userName:this.data.user,
           }).get({
               //如果查询成功的话    
               success: res => {
-                console.log(res.data);              
-              if(true){
+                console.log(res.data[0]);              
+                // console.log(res.data[0].userName); 
+               var searchedName = res.data[0].userName
+                console.log(searchedName)
+                if (user==searchedName){
                 console.log("查询到了")
                   wx.navigateTo({
-                    url: '../result/result?username={{user}}',
+                    url: '../result/result?user={{user}}',                     
                   })
                 } else {
                   wx.showToast({
@@ -88,9 +94,7 @@ Page({
                     duration: 3000
                   })
                 }
-                this.setData({
-                  ne: res.data
-                })
+                
               }
             })
           }

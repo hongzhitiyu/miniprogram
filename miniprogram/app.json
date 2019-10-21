@@ -8,10 +8,13 @@
 
   "pages": [ 
     "pages/index/index",
-    "pages/student/student",    
-    
-    "pages/hp/hp",
     "pages/test/test",
+    "pages/student/student",
+    "pages/hp/hp",
+    
+    
+    
+    
     "pages/result/result",
     
             

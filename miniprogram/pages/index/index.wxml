@@ -16,7 +16,9 @@
 </view>
 </form>
 
+<view wx:if="{{isShow}}" class="notice">
 <van-notice-bar
   left-icon="https://img.yzcdn.cn/1.png"
-  text="通知：--国庆放假7天，特此公告！祝大家国庆节快乐！"
+  text="{{notice}}"
 />
+</view>
